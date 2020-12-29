@@ -1,5 +1,7 @@
 require("craicua")
 
+context = {}
+
 function load_pico_8_file(pico_8_file_name)
    print(pico_8_file_name)
    local pico_8_file = io.open(pico_8_file_name, "r")
@@ -19,3 +21,10 @@ function load_pico_8_file(pico_8_file_name)
    load(lua_section)()
 end
 
+function btnp(key)
+   return context.pressed_key == key
+end
+
+function press_key(scenario, key)
+   context.pressed_key = key
+end
